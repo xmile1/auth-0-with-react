@@ -4,8 +4,18 @@ import Home from 'components/Home'
 import Login from 'components/Login'
 import ParamTester from 'components/ParamTester'
 import Auth from './js/Auth';
+import Callback from 'components/Callback'
 
 const auth = new Auth()
+
+
+const handleAuthentication = (nextState, replace) => {
+  console.log(nextState)
+  if (/access_token|id_token|error/.test(nextState.location.hash)) {
+    auth.handleAuthentication(nextState.history);
+  }
+}
+
 const Router = ()=> (
   <div>
     <Switch>

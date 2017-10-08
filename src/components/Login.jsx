@@ -2,19 +2,12 @@ import React, {Component} from 'react'
 
 class Login extends Component{
 
-constructor(props){
-  super(props)
-}
-
-logout(){
-  this.props.auth.logout(this.props.history)
-}
-
-
   render(){
-    let {isAuthenticated, login} = this.props.auth
+    let {isAuthenticated, login, logout} = this.props.auth
 
-    return isAuthenticated() ? (<div onClick={this.logout.bind(this)} >Logged In</div>) : login()
+    return isAuthenticated() ?
+      (<div onClick={()=>{logout(this.props.history)}} >Logged In</div>) :
+      (<div onClick={login} >Click here to Log In</div>)
   }
 }
 
