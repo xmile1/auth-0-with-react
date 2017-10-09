@@ -1,26 +1,19 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
+import Login from './Login'
+import 'css/Home.css'
 
-class Home extends Component{
 
-  render(){
-    return (
+
+const Home = (props)=>(
+  <div>
+    <div class="main">
+        <Login {...props}/>
       <div>
-        <header>
-          <nav>
-            <ul>
-              <li>
-                <Link to='/login'> Login </Link>
-              </li>
-              <li>
-                <Link to='/paramuser/56'> Param 56 tester</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
+        <Link to='/paramuser/56'> Param 56 tester</Link>
       </div>
-    )
-  }
-}
+    </div>
+  </div>
+)
 
 export default Home

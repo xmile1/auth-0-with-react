@@ -1,14 +1,12 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-class Login extends Component{
+const Login = ({auth, history})=> auth.isAuthenticated() ?
+  (<div onClick={()=>{auth.logout(history)}} >
+    Logged In: Click to Logout
+  </div>) :
+  (<div onClick={auth.login} >
+    Click here to Log In
+  </div>)
 
-  render(){
-    let {isAuthenticated, login, logout} = this.props.auth
-
-    return isAuthenticated() ?
-      (<div onClick={()=>{logout(this.props.history)}} >Logged In</div>) :
-      (<div onClick={login} >Click here to Log In</div>)
-  }
-}
 
 export default Login
